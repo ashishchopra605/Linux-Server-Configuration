@@ -12,22 +12,22 @@
 	- sudo apt-get upgrade
   
 # Initial Server Setup
-Step One — Root Login
+# Step One — Root Login
 
     ssh root@SERVER_IP_ADDRESS
     
-Step Two — Create a New User
+# Step Two — Create a New User
 
     sudo adduser grader
     
-Step Three — Root Privileges
+# Step Three — Root Privileges
 
     gpasswd -a grader sudo
     
-Step Four — Add Public Key Authentication 
+# Step Four — Add Public Key Authentication 
    - Generate a Key Pair
    
-       sudo ssh-keygen
+         sudo ssh-keygen
        
 Assuming your local user is called "localuser", you will see output that looks like the following:
        
@@ -56,7 +56,7 @@ Assuming your local user is called "localuser", you will see output that looks l
     
         sudo chmod 644 .ssh/authorized_keys
         
-Step Five — Configure SSH
+# Step Five — Configure SSH
 
     nano /etc/ssh/sshd_config
     
@@ -64,7 +64,7 @@ Step Five — Configure SSH
 - Modify this line to "no" like this to disable root login: PermitRootLogin no
 - Disabling remote root login is highly recommended on every server!
 
-Step Six -- Reload SSH
+# Step Six -- Reload SSH
 
     service ssh restart
     
