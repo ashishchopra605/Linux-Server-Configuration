@@ -3,6 +3,10 @@
 # project Overview
   You will take a baseline installation of a Linux distribution on a virtual machine and prepare it to host your web applications, to include installing updates, securing it from a number of attack vectors and installing/configuring web and database servers.
   
+ - public url : [http://138.197.39.249](http://138.197.39.249/)
+ 
+ - ssh port: 2200
+  
 # Fundamentals of the project
   - Deploying a web application to a publicly accessible server.
   - Properly securing application ensures, application remains stable and that user’s data is safe.
@@ -10,8 +14,12 @@
 # Updating all packages on the server
 	- sudo apt-get update 
 	- sudo apt-get upgrade
-  
+	
+#  create droplet in digital ocean
+- [Create Your First Digital Ocean Droplet Virtual Server](https://www.digitalocean.com/community/tutorials/how-to-create-your-first-digitalocean-droplet-virtual-server)
+ 
 # Initial Server Setup
+
 # Step One — Root Login
 
     ssh root@SERVER_IP_ADDRESS
@@ -157,6 +165,9 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 - Use pip to install dependencies `sudo pip install -r requirements.txt`
 - Install psycopg2 `sudo apt-get -qqy install postgresql python-psycopg2`
 - Create database schema `sudo python database_setup.py` 
+- change path of fb_client_secrets.py,client_secrets.py in models/fblogin.py and models/googlelogin.py.
+- add public url in client_secrets.py.
+- Also, add the public IP address back into the Google Developer console and Facebook developer console
 
 # Configure and Enable a New Virtual Host
 - Create FlaskApp.conf to edit: `sudo nano /etc/apache2/sites-available/FlaskApp.conf`
@@ -202,6 +213,5 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 	```
   
 # Restart Apache
-- Restart Apache `sudo service apache2 restart `
-      
+- Restart Apache `sudo service apache2 restart `      
 
